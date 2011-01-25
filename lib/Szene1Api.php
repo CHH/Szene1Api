@@ -42,6 +42,8 @@ class Api
         "timeout" => 10
     );
     
+    const ERROR_INVALID_AUTHTOKEN = 104;
+    
     /**
      * Constructor
      *
@@ -59,11 +61,35 @@ class Api
     }
     
     /**
-     * @alias api()
+     * @see api()
      */
     function __invoke($path, Array $params = array(), $method = "GET") 
     {
         return $this->api($path, $params, $method);
+    }
+    
+    /**
+     * Shortcut for HTTP GET Requests
+     *
+     * @param  string $path
+     * @param  array  $params
+     * @return SimpleXMLElement
+     */
+    function get($path, Array $params = array())
+    {
+        return $this->api($path, $params, "GET");
+    }
+    
+    /**
+     * Shortcut for HTTP POST Requests
+     *
+     * @param  string $path
+     * @param  array  $params
+     * @return SimpleXMLElement
+     */
+    function post($path, Array $params = array())
+    {
+        return $this->api($path, $params, "POST");
     }
     
     /**
@@ -91,9 +117,10 @@ class Api
     
     /**
      * Sends a login request and stores the returned session information
+     * to enable user-based requests
      *
      * The session info (user ID, user name, authtoken) is available via the 
-     * {@see getSession()}. Persisting this object is up to you!
+     * {@see getSession()}. Persisting this object is up to the Developer!
      *
      * @throws InvalidArgumentException|Szene1\Exception
      * @param  string $username
@@ -102,6 +129,11 @@ class Api
      */
     function login($username, $password)
     {
+        if ($this->session) {
+            throw new Exception("Session already exists. Please logout the current"
+                . " user before you start a new login attempt.");
+        }
+        
         if (empty($username) or empty($password)) {
             throw new InvalidArgumentException("No valid username or password given");
         }
@@ -121,7 +153,10 @@ class Api
     }
     
     /**
-     * Log out the current user. Note: Make sure a valid session is set 
+     * Log out the current user
+     *
+     * Note: It takes the Auth Token from the session property, so make sure a
+     * valid session object is set.
      *
      * @throws Exception if No session is set
      */
@@ -130,25 +165,29 @@ class Api
         if (!$this->session) {
             throw new Exception("No valid session.");
         }
+        
         $authtoken = $this->session->authtoken;
-        $response  = $this->api("user/logout", array(
-            "authtoken" => $authtoken
-        ));
-        if ($response->success) {
-            $this->session = null;
-        }
+        
+        try {
+            $response  = $this->api("user/logout", array(
+                "authtoken" => $authtoken
+            ));
+        } catch (Exception $e) {}
+        
+        $this->session = null;
         return $this;
     }
     
     /**
      * Does requests to a section/method
      *
-     * @param  string $path
+     * @param  string|array $path Either as section/method string (e.g. "system/version")
+     *                            or callback style, e.g. array("system", "version")
      * @param  array  $params
      * @param  string $method
      * @return SimpleXMLElement
      */
-    function api($path, Array $params = array(), $httpMethod = "GET")
+    protected function api($path, Array $params = array(), $httpMethod = "GET")
     {
         $httpMethod = strtoupper($httpMethod);
         
@@ -173,7 +212,7 @@ class Api
             $params["authtoken"] = $session->authtoken;
         }
         
-        if ("GET" === $httpMethod) {
+        if ("GET" == $httpMethod) {
             foreach ($params as $param => $value) {
                 $url .= "/" . $param . "/" . urlencode($value);
             }
@@ -181,10 +220,23 @@ class Api
         }
         
         $content = $this->request($url, $params, $httpMethod);
-        $xml     = new SimpleXMLElement($content);
+        
+        try {
+            $xml = new SimpleXMLElement($content);
+            
+        // XML Parse error
+        } catch (\Exception $e) {
+            throw new Exception(
+                "String \"$content\" could not be parsed as XML"
+            );
+        }
         
         // API Error
         if (isset($xml->errorcode)) {
+            // Error: Invalid Auth token, session is not valid anymore
+            if (static::ERROR_INVALID_AUTHTOKEN == $xml->errorcode) {
+                $this->session = null;
+            }
             throw new Exception(
                 "API Error {$xml->errorcode}: {$xml->errormessage}", 
                 (int) $xml->errorcode
@@ -242,22 +294,27 @@ class Api
      */
     protected function request($url, Array $parameters = array(), $method = "GET")
     {
+        $method = strtoupper($method);
+        
         $opts = array(
-            "method" => strtoupper($method)
+            "method" => $method
         );
         
         if ($parameters) {
             $query = http_build_query($parameters);
             if ("GET" == $method) {
-                $url .= "?" . $query;
+                if (false === strpos($url, "?")) {
+                    $url .= "?";
+                } else {
+                    $url .= "&";
+                }
+                $url .= $query;
             } else {
                 $opts["content"] = $query;
             }
         }
-        
-        $opts    = array("http" => array_merge($this->defaultHttpOptions, $opts));
-        $context = stream_context_create($opts);
-        
+        $opts     = array("http" => array_merge($this->defaultHttpOptions, $opts));
+        $context  = stream_context_create($opts);
         $contents = file_get_contents($url, false, $context);
         
         // Read HTTP status line
@@ -271,7 +328,8 @@ class Api
     }
     
     /**
-     * Hashes the section, method, API Key and API Secret with MD5 for usage as Auth Secret
+     * Hashes the section, method, API Key and API Secret with MD5 for 
+     * usage as Auth Secret
      *
      * @param  string $section
      * @param  string $method
