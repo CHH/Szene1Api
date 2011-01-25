@@ -143,6 +143,8 @@ class Api
             "password" => md5($password)
         ));
         
+        // SimpleXMLElement's cannot be serialized into the Session, so convert
+        // the SimpleXMLElement to an StdClass object
         $session = new StdClass;
         foreach ($response as $key => $value) {
             $session->{$key} = current($value);
@@ -245,6 +247,10 @@ class Api
         return $xml;
     }
     
+    /*
+     * Setters for options
+     */
+    
     /**
      * Sets the base url for all requests
      *
@@ -300,19 +306,29 @@ class Api
             "method" => $method
         );
         
+        // Add params as query params on a GET request or insert them into the
+        // request body on a POST or PUT request
         if ($parameters) {
             $query = http_build_query($parameters);
-            if ("GET" == $method) {
-                if (false === strpos($url, "?")) {
-                    $url .= "?";
-                } else {
-                    $url .= "&";
-                }
-                $url .= $query;
-            } else {
-                $opts["content"] = $query;
+            
+            switch ($method) {
+                case "GET":
+                    if (false === strpos($url, "?")) {
+                        $url .= "?";
+                    } else {
+                        $url .= "&";
+                    }
+                    $url .= $query;
+                    break;
+                    
+                case "POST":
+                case "PUT":
+                    $opts["content"] = $query;
+                    break;
+                default:
             }
         }
+        
         $opts     = array("http" => array_merge($this->defaultHttpOptions, $opts));
         $context  = stream_context_create($opts);
         $contents = file_get_contents($url, false, $context);
