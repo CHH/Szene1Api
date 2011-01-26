@@ -119,7 +119,7 @@ class Api
      * Sends a login request and stores the returned session information
      * to enable user-based requests
      *
-     * The session info (user ID, user name, authtoken) is available via the 
+     * The session info (user ID, user name, authtoken) is available via 
      * {@see getSession()}. Persisting this object is up to the Developer!
      *
      * @throws InvalidArgumentException|Szene1\Exception
@@ -228,6 +228,7 @@ class Api
             
         // XML Parse error
         } catch (\Exception $e) {
+            $content = htmlentities($content);
             throw new Exception(
                 "String \"$content\" could not be parsed as XML"
             );
@@ -324,6 +325,7 @@ class Api
                 case "POST":
                 case "PUT":
                     $opts["content"] = $query;
+                    $opts["header"]  = "Content-type: application/x-www-form-urlencoded";
                     break;
                 default:
             }
