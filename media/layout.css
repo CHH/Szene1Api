@@ -1,0 +1,83 @@
+
+body {
+position: relative;
+font-size: 0.625em;
+width: 96em;
+margin: 0 auto;}
+
+#nav {
+float: left;
+width: 20em;
+margin: 0 1em;}
+
+#body {
+float: right;
+width: 71em;
+margin: 0 1em 0 0.9em;
+padding: 0 0 1em 1em;
+border-left: 1px solid #ccc;}
+
+h1, h2, h3, h4, h5, h6 {
+line-height: 1.1em;}
+
+h1 {
+margin: 0.2em 0;}
+
+h2, h3, h4, h5, h6 {
+margin: 0.75em 0 0.55em;
+padding: 0.4em 0;}
+
+p {}
+
+ul, ol, dl, p {
+margin: 0 0 1em;}
+
+dt {
+margin: 0.45em 0 0.25em;}
+
+#content {
+}
+
+#header {
+position: relative; height: 5em;
+border-bottom: 1px solid #ddd;}
+
+#packagePosition {
+position: absolute;
+top: 0;
+left: 0;}
+
+#packagePosition div {
+display: inline;}
+
+#packageTitle {
+}
+
+#packageTitle2 {
+}
+
+#elementPath {
+}
+
+#navLinks {
+position: absolute;
+top: 0;
+right: 0;}
+
+.leftCol {
+}
+
+.middleCol {
+}
+
+.rightCol {
+}
+
+#credit {
+}
+
+/** Fixed layout for nav on mozilla */
+head:first-child+body div#header {
+}
+head:first-child+body div#nav {
+}

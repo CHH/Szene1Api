@@ -1,152 +1,255 @@
-.php {
-	padding: 1em;
-}
-.php-src { font-family: 'Courier New', Courier, monospace; font-weight: normal; }
+body {
+font-family: Georgia, Palatino, "Palatino Linotype", Times, "Times New Roman", serif;}
 
-body
-{
-  color:              #000000;
-  background-color:   #ffffff;
-  background-image:   url("background.png");
-  background-repeat:  repeat-y;
-  font-family:        tahoma, verdana, arial, sans-serif;
-  font-size:          10pt;
-  margin:             0;
-  padding:            0;
+p {
+font-size: 1.6em;
+line-height: 1.5em;}
+
+strong {
 }
 
-a
-{
-  color:              #000099;
-  background-color:   transparent;
-  text-decoration:    none;
-}
-
-a:hover
-{
-  text-decoration:    underline;
-}
-
-a.menu
-{
-  color:              #ffffff;
-  background-color:   transparent;
-}
-
-td
-{
-  font-size:          10pt;
-}
-
-td.header_top
-{
-  color:              #ffffff;
-  background-color:   #9999cc;
-  font-size:          16pt;
-  font-weight:        bold;
-  text-align:         right;
-  padding:            10px;
-}
-
-td.header_line
-{
-  color:              #ffffff;
-  background-color:   #333366;
-}
-
-td.header_menu
-{
-  color:              #ffffff;
-  background-color:   #666699;
-  font-size:          8pt;
-  text-align:         right;
-  padding:            2px;
-  padding-right:      5px;
-}
-
-td.menu
-{
-  padding:            2px;
-  padding-left:       5px;
-}
-
-td.code_border
-{
-  color:              #000000;
-  background-color:   #c0c0c0;
-}
-
-td.code
-{
-  color:              #000000;
-  background-color:   #f0f0f0;
-}
-
-td.type
-{
-  font-style:         italic;
-}
-
-div.credit
-{
-  font-size:          8pt;
-  text-align:         center;
-}
-
-div.package
-{
-  padding-left:       5px;
-}
-
-div.tags
-{
-  padding-left:       15px;
-}
-
-div.function
-{
-  padding-left:       15px;
-}
-
-div.top
-{
-  font-size:          8pt;
-}
-
-div.warning
-{
-  color:              #ff0000;
-  background-color:   transparent;
-}
-
-div.description
-{
-  padding-left:       15px;
-}
-
-hr
-{
-  height:             1px;
-  border-style:       solid;
-  border-color:       #c0c0c0;
-  margin-top:         10px;
-  margin-bottom:      10px;
-}
-
-span.smalllinenumber
-{
-  font-size:          8pt;
+em {
 }
 
 ul {
-	margin-left:		0px;
-	padding-left:		8px;
 }
+
+li {
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-weight: normal;}
+
+h1, h2, h4 {
+font-family: Helvetica, "Helvetica Neue", "Nimbus Sans L", Arial, sans-serif;}
+
+h1, h2, h4 {
+font-weight: bold;}
+
+h1 {
+font-size: 3.6em;}
+
+h2 {
+font-size: 2.4em;}
+
+h3 {
+font-size: 2.1em;}
+
+h4 {
+font-size: 1.3em;
+text-transform: uppercase;
+letter-spacing: 0.1em;}
+
+dl {
+}
+
+dd {
+}
+
+a {
+}
+
+a:Hover {
+}
+	
+#packageTitle {
+}
+
+#packageTitle2 {
+}
+
+#packageLinks {
+}
+
+#header {
+}
+
+#nav {
+}
+
+#index {
+}
+
+#classes {
+}
+#classes dt {
+font-size: 2.1em;}
+
+#classes dd {
+font-size: 1.6em;
+font-style: italic;}
+
+/**
+ * Functions
+ */
+#function {
+}
+
+#function h3 {
+font-size: 2.8em;
+border-top: 3px solid #444;}
+
+#function .declaration {
+margin: 0 0 2em;}
+#function .declaration code {
+font-size: 1.3em;}
+
+#function .linenumber {
+position: absolute; 
+top: 0; 
+right: 0;
+padding: 10px;
+font-size: 1.2em;
+font-style: italic;
+color: #555;}
+
+.linenumber abbr {
+margin: 0 0.2em 0;
+font-family: Helvetica, "Helvetica Neue", "Nimbus Sans L", Arial, sans-serif;
+font-weight: bold;
+font-style: normal;
+color: #000;}
+
+.parameters {
+width: 60em;
+margin: 0 0 2em;
+border-collapse: collapse;}
+
+.parameters td {
+padding: 5px;
+font-size: 1.3em;
+border-bottom: 1px dotted #ddd;}
+
+.parameters .type {
+width: 15%;}
+
+.parameters .param,
+.parameters .type {
+font-family: "Droid Sans Mono", Monospace, Consolas, monospace;}
+
+.parameters .desc {
+width: 50%;}
+
+.func {
+position: relative;}
+
+.func .top {
+position: absolute;
+bottom: 0;
+right: 0;
+margin: 0;
+font-size: 1.2em;}
+
+.top a {
+padding: 5px;
+color: #bbb;}
+
+.top a:hover {
+text-decoration: none;
+background: #000;
+color: #eee;}
+
+/**
+ * Tags
+ */
+.tags {
+margin: 0 0 2em;}
+
+.tags .title {
+margin: 0.25em 0 0.75em;
+font-size: 1.3em;
+font-weight: bold;
+letter-spacing: 0.1em;
+font-family: Helvetica, "Helvetica Neue", "Nimbus Sans L", Arial, sans-serif; 
+text-transform: uppercase;}
+
+.tags dl {
+font-size: 1.6em;}
+
+.tags dt {
+color: #555;
+font-family: "Droid Sans Mono", Monospace, Consolas, monospace;
+font-size: 0.8em;}
+
+.tags dd {
+padding: 0 0 0 2em;}
+
+.shortdesc {
+font-style: italic;}
+
+.links {
+}
+
+.small {
+}
+
+.middleCol {
+}
+
+.leftCol {
+}
+
+.rightCol {
+}
+
+#elementPath {
+}
+
+.constructor {
+}
+
+#credit {
+}
+
+div.contents {
+}
+
+#classTree {
+}
+
+div.indent {
+}
+
+.warning {
+}
+
+code {
+font-family: "Droid Sans Mono", Monospace, Consolas, monospace;}
+
+.type {
+}
+
+.value {
+}
+
+.top {
+}
+
+.php-src, .php, .listing {
+	font-family:		fixed;
+	padding:		3px;
+	color:			#334B66;
+	background-color:	#dddddd;
+	font-family: 'Courier New', Courier, monospace; font-weight: normal;
+}
+
+div#nav dl {
+}
+
+div.classtree {
+}
+
+span.linenumber,p.linenumber {
+}
+
+span.smalllinenumber {
+}
+
 /* Syntax highlighting */
 
-.src-code { background-color: #f5f5f5; border: 1px solid #ccc9a4; padding: 0 0 0 1em; margin : 0px;
-            font-family: 'Courier New', Courier, monospace; font-weight: normal; }
+.src-code { background-color: #f5f5f5; border: 1px solid #ccc9a4; padding: 0px; margin : 0px}
 .src-line {  font-family: 'Courier New', Courier, monospace; font-weight: normal; }
+/*.src-code pre {	}*/
 
 .src-comm { color: green; }
 .src-id {  }
@@ -179,17 +282,19 @@ ul {
 /* tutorial */
 
 .authors {  }
-.author { font-style: italic; font-weight: bold }
-.author-blurb { margin: .5em 0em .5em 2em; font-size: 85%; font-weight: normal; font-style: normal }
-.example { border: 1px dashed #999999; background-color: #EEEEEE; padding: .5em; }
-.listing { border: 1px dashed #999999; background-color: #EEEEEE; padding: .5em; white-space: nowrap; }
-.release-info { font-size: 85%; font-style: italic; margin: 1em 0em }
-.ref-title-box {  }
-.ref-title {  }
-.ref-purpose { font-style: italic; color: #666666 }
-.ref-synopsis {  }
-.title { font-weight: bold; margin: 1em 0em 0em 0em; padding: .25em; border: 2px solid #999999; background-color: #9999CC  }
-.cmd-synopsis { margin: 1em 0em }
-.cmd-title { font-weight: bold }
-.toc { margin-left: 2em; padding-left: 0em }
+.author {}
+.author-blurb { }
+.example {}
+.listing {}
+.release-info {}
+.ref-title-box {}
+.ref-title {}
+.ref-purpose {}
+.ref-synopsis {}
+
+.title {}
+	
+.cmd-synopsis {}
+.cmd-title {}
+.toc {}
 

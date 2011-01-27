@@ -1,269 +1,367 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Docs for page Szene1Api.php</title>
-<link rel="stylesheet" type="text/css" href="../media/style.css">
+	<title>Docs for page Szene1Api.php</title>
+	<link rel="stylesheet" type="text/css" href="../media/reset.css">
+	<link rel="stylesheet" type="text/css" id="layout" href="../media/layout.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="../media/style.css" media="all">
+	<link rel="stylesheet" type="text/css" href="../media/print.css" media="print">
 </head>
-<body>
 
-<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
-  <tr>
-    <td class="header_top">Szene1Api</td>
-  </tr>
-  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
-  <tr>
-    <td class="header_menu">
+<body>
+<div id="header">
+	<div id="navLinks">
         
                                     
-                              		  [ <a href="../classtrees_Szene1Api.html" class="menu">class tree: Szene1Api</a> ]
-		  [ <a href="../elementindex_Szene1Api.html" class="menu">index: Szene1Api</a> ]
-		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
-    </td>
-  </tr>
-  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
-</table>
+                            	        <a href="../classtrees_Szene1Api.html">Class Tree: Szene1Api</a>
+            <a href="../elementindex_Szene1Api.html">Index: Szene1Api</a>
+        		<a href="../elementindex.html">All elements</a>
+	</div>
+	<div id="packagePosition">
+		<div id="packageTitle">Szene1Api</div>
+		<div id="elementPath"> &middot; </div>
+	</div>
+</div>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-  <tr valign="top">
-    <td width="200" class="menu">
-      <b>Packages:</b><br />
-              <a href="../li_Szene1Api.html">Szene1Api</a><br />
-            <br /><br />
-                        <b>Files:</b><br />
-      	  <div class="package">
-			<a href="../Szene1Api/_lib---Szene1Api.php.html">		Szene1Api.php
+<div id="nav" class="small">
+	<div id="packages">
+		Packages:
+					<p><a href="../li_Szene1Api.html">Szene1Api</a></p>
+			</div>
+
+				<div id="index">
+			<div id="files">
+								Files:<br>
+								<a href="../Szene1Api/_lib---Szene1Api.php.html">		Szene1Api.php
 		</a><br>
-	  </div><br />
-      
-      
-            <b>Classes:</b><br />
-        <div class="package">
-		    		<a href="../Szene1Api/Api.html">Api</a><br />
-	    		<a href="../Szene1Api/Exception.html">Exception</a><br />
-	  </div>
-                </td>
-    <td>
-      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+				</div>
+			<div id="interfaces">
+							</div>
+			<div id="classes">
+				Classes:<br>
+								<a href="../Szene1Api/Api.html">		Api
+		</a><br>
+			<a href="../Szene1Api/Exception.html">		Exception
+		</a><br>
+				</div>
+		</div>
+	</div>
 
-<h1>Procedural File: Szene1Api.php</h1>
-Source Location: /lib/Szene1Api.php<br /><br />
+<div id="body">
+	    		<h1>File: Szene1Api.php</h1>
+	<p>Source Location: /lib/Szene1Api.php</p>
+	
+<p class="shortdesc">
+    A minimalist, modern and CURL-free Library for PHP 5.3+  to access the Szene1 <a href="http://szene1.at">http://szene1.at</a> XML REST API
+</p>
 
-<br>
-<br>
+<p>Documentation for the API is available at <a href="http://wiki.szene1.co.at/wiki/Weblife1_API">http://wiki.szene1.co.at/wiki/Weblife1_API</a>  This library uses the HTTP fopen wrapper of PHP, make sure it's enabled. You can  also subclass Szene1\Api and override the <a href="../Szene1Api/_lib---Szene1Api.php.html#functionrequest">request()</a> Method</p>
+<div class="tags">
+    <div class="title">Tags</div>
+
+    <dl>
+    	    <dt>author</dt>
+	    <dd>Christoph Hochstrasser &lt;<a href="mailto:christoph.hochstrasser@gmail.com">christoph.hochstrasser@gmail.com</a>&gt;</dd>
+    	    <dt>license</dt>
+	    <dd>MIT</dd>
+        </dl>
+</div>
 
 <div class="contents">
-<h2>Classes:</h2>
-<dt><a href="../Szene1Api/Exception.html">Exception</a></dt>
-	<dd></dd>
-<dt><a href="../Szene1Api/Api.html">Api</a></dt>
-	<dd></dd>
-</div><br /><br />
-
-<h2>Page Details:</h2>
-A minimalist, modern and CURL-free Library for PHP 5.3+  to access the Szene1 <a href="http://szene1.at">http://szene1.at</a> XML REST API<br /><br /><p>Documentation for the API is available at <a href="http://wiki.szene1.co.at/wiki/Weblife1_API">http://wiki.szene1.co.at/wiki/Weblife1_API</a>  This library uses the HTTP fopen wrapper of PHP, make sure it's enabled. You can  also subclass Szene1\Api and override the <a href="../Szene1Api/_lib---Szene1Api.php.html#functionrequest">request()</a> Method</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>author:</b>&nbsp;&nbsp;</td><td>Christoph Hochstrasser &lt;<a href="mailto:christoph.hochstrasser@gmail.com">christoph.hochstrasser@gmail.com</a>&gt;</td>
-  </tr>
-  <tr>
-    <td><b>license:</b>&nbsp;&nbsp;</td><td>MIT</td>
-  </tr>
-</table>
+        
+    <div id="classes">
+        <h2>This file includes these Classes</h2>
+        <dl>
+                    <dt><a href="../Szene1Api/Exception.html">Exception</a></dt>
+	        <dd>The base exception class</dd>
+                    <dt><a href="../Szene1Api/Api.html">Api</a></dt>
+	        <dd>Talks to the API</dd>
+                </dl>
+    </div>
 </div>
-<br /><br />
-<br /><br />
-<br /><br />
-<br />
-  <hr />
-	<a name="functiongetAuthSecret"></a>
-	<h3>getAuthSecret <span class="smalllinenumber">[line 360]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string getAuthSecret(
-string $section, string $method)</code>
-    </td></tr></table>
-    </td></tr></table><br />
 
-		Hashes the section, method, API Key and API Secret with MD5 for  usage as Auth Secret<br /><br />    <br /><br />
-	
-    		<h4>Parameters</h4>
-    <table border="0" cellspacing="0" cellpadding="0">
-		      <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$section</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-		      <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$method</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-				</table>
-    	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
-	</div>
-  <hr />
-	<a name="functiongetSession"></a>
-	<h3>getSession <span class="smalllinenumber">[line 292]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void getSession(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
 
-		    <br /><br />
-	
-    	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
-	</div>
-  <hr />
-	<a name="functionrequest"></a>
-	<h3>request <span class="smalllinenumber">[line 306]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string request(
-string $url, [ $parameters = array()], [string $method = &amp;quot;GET&amp;quot;])</code>
-    </td></tr></table>
-    </td></tr></table><br />
+<div id="global">
 
-		Sends a HTTP request via the HTTP fopen wrapper and returns the response body<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>The response body</td>
-  </tr>
-  <tr>
-    <td><b>throws:</b>&nbsp;&nbsp;</td><td>Szene1\Exception on Error</td>
-  </tr>
-</table>
+
 </div>
-    <br /><br />
-	
-    		<h4>Parameters</h4>
-    <table border="0" cellspacing="0" cellpadding="0">
-		      <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$url</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-		      <tr>
-        <td class="type">array&nbsp;&nbsp;</td>
-        <td><b>$parameters</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-		      <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$method</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-				</table>
-    	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
-	</div>
-  <hr />
-	<a name="functionsetApiKey"></a>
-	<h3>setApiKey <span class="smalllinenumber">[line 271]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void setApiKey(
- $key)</code>
-    </td></tr></table>
-    </td></tr></table><br />
+<div id="define">
+</div>
+<div id="function">
 
-		    <br /><br />
+    <div id="functiongetAuthSecret" class="func">
 	
-    		<h4>Parameters</h4>
-    <table border="0" cellspacing="0" cellpadding="0">
-		      <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>$key</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-				</table>
-    	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
-	</div>
-  <hr />
-	<a name="functionsetApiSecret"></a>
-	<h3>setApiSecret <span class="smalllinenumber">[line 277]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void setApiSecret(
- $secret)</code>
-    </td></tr></table>
-    </td></tr></table><br />
+	<h3>getAuthSecret</h3>
+	
+	<div class="indent">
+		<p class="shortdesc">
+    Hashes the section, method, API Key and API Secret with MD5 for  usage as Auth Secret
+</p>
 
-		    <br /><br />
-	
-    		<h4>Parameters</h4>
-    <table border="0" cellspacing="0" cellpadding="0">
-		      <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>$secret</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-				</table>
-    	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
-	</div>
-  <hr />
-	<a name="functionsetBaseUrl"></a>
-	<h3>setBaseUrl <span class="smalllinenumber">[line 265]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code><a href="../Szene1Api/Api.html">Api</a> setBaseUrl(
-string $url)</code>
-    </td></tr></table>
-    </td></tr></table><br />
 
-		Sets the base url for all requests<br /><br />    <br /><br />
-	
-    		<h4>Parameters</h4>
-    <table border="0" cellspacing="0" cellpadding="0">
-		      <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$url</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
+        
+        <h4>Declaration</h4>
+        
+        <div class="declaration">
+        <code>string getAuthSecret(
+                                    string $section                            , string $method                    )
+        </code>
+        </div>
+        
+		<p class="linenumber">Defined on line <abbr title="Linenumber">377</abbr></p>
+		
+		
+		        
+		<h4>Parameters</h4>
+		
+		<table class="parameters">
+	    		    <tr>
+		        <td class="type">string</td>
+		        <td class="param">$section</td>
+		        <td class="desc"></td>
+		    </tr>
+				    <tr>
+		        <td class="type">string</td>
+		        <td class="param">$method</td>
+		        <td class="desc"></td>
+		    </tr>
 				</table>
-    	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
 	</div>
-  <hr />
-	<a name="functionsetSession"></a>
-	<h3>setSession <span class="smalllinenumber">[line 283]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void setSession(
- $session)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-
-		    <br /><br />
+	<p class="top"><a href="#top">&uarr; Back to top</a></p>
 	
-    		<h4>Parameters</h4>
-    <table border="0" cellspacing="0" cellpadding="0">
-		      <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>$session</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-				</table>
-    	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
 	</div>
 
-        <div class="credit">
-		    <hr />
-		    Documentation generated on Thu, 27 Jan 2011 10:38:47 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
-	      </div>
-      </td></tr></table>
-    </td>
-  </tr>
-</table>
+    <div id="functiongetSession" class="func">
+	
+	<h3>getSession</h3>
+	
+	<div class="indent">
+		
 
+        
+        <h4>Declaration</h4>
+        
+        <div class="declaration">
+        <code>object getSession(
+        )
+        </code>
+        </div>
+        
+		<p class="linenumber">Defined on line <abbr title="Linenumber">309</abbr></p>
+		
+		
+		        
+		<h4>Parameters</h4>
+		
+		<table class="parameters">
+	    		    <tr>
+		        <td class="type">void</td>
+		    </tr>
+				</table>
+	</div>
+	<p class="top"><a href="#top">&uarr; Back to top</a></p>
+	
+	</div>
+
+    <div id="functionrequest" class="func">
+	
+	<h3>request</h3>
+	
+	<div class="indent">
+		<p class="shortdesc">
+    Sends a HTTP request via the HTTP fopen wrapper and returns the response body
+</p>
+
+
+<div class="tags">
+    <div class="title">Tags</div>
+
+    <dl>
+    	    <dt>return</dt>
+	    <dd>The response body</dd>
+    	    <dt>throws</dt>
+	    <dd>Szene1\Exception on Error</dd>
+        </dl>
+</div>
+        
+        <h4>Declaration</h4>
+        
+        <div class="declaration">
+        <code>string request(
+                                    string $url                            , [ $parameters = array()]                            , [string $method = &amp;quot;GET&amp;quot;]                    )
+        </code>
+        </div>
+        
+		<p class="linenumber">Defined on line <abbr title="Linenumber">323</abbr></p>
+		
+		
+		        
+		<h4>Parameters</h4>
+		
+		<table class="parameters">
+	    		    <tr>
+		        <td class="type">string</td>
+		        <td class="param">$url</td>
+		        <td class="desc"></td>
+		    </tr>
+				    <tr>
+		        <td class="type">array</td>
+		        <td class="param">$parameters</td>
+		        <td class="desc"></td>
+		    </tr>
+				    <tr>
+		        <td class="type">string</td>
+		        <td class="param">$method</td>
+		        <td class="desc"></td>
+		    </tr>
+				</table>
+	</div>
+	<p class="top"><a href="#top">&uarr; Back to top</a></p>
+	
+	</div>
+
+    <div id="functionsetApiKey" class="func">
+	
+	<h3>setApiKey</h3>
+	
+	<div class="indent">
+		
+
+        
+        <h4>Declaration</h4>
+        
+        <div class="declaration">
+        <code>void setApiKey(
+                                    string $key                    )
+        </code>
+        </div>
+        
+		<p class="linenumber">Defined on line <abbr title="Linenumber">279</abbr></p>
+		
+		
+		        
+		<h4>Parameters</h4>
+		
+		<table class="parameters">
+	    		    <tr>
+		        <td class="type">string</td>
+		        <td class="param">$key</td>
+		        <td class="desc"></td>
+		    </tr>
+				</table>
+	</div>
+	<p class="top"><a href="#top">&uarr; Back to top</a></p>
+	
+	</div>
+
+    <div id="functionsetApiSecret" class="func">
+	
+	<h3>setApiSecret</h3>
+	
+	<div class="indent">
+		
+
+        
+        <h4>Declaration</h4>
+        
+        <div class="declaration">
+        <code>void setApiSecret(
+                                    string $secret                    )
+        </code>
+        </div>
+        
+		<p class="linenumber">Defined on line <abbr title="Linenumber">288</abbr></p>
+		
+		
+		        
+		<h4>Parameters</h4>
+		
+		<table class="parameters">
+	    		    <tr>
+		        <td class="type">string</td>
+		        <td class="param">$secret</td>
+		        <td class="desc"></td>
+		    </tr>
+				</table>
+	</div>
+	<p class="top"><a href="#top">&uarr; Back to top</a></p>
+	
+	</div>
+
+    <div id="functionsetBaseUrl" class="func">
+	
+	<h3>setBaseUrl</h3>
+	
+	<div class="indent">
+		<p class="shortdesc">
+    Sets the base url for all requests
+</p>
+
+
+        
+        <h4>Declaration</h4>
+        
+        <div class="declaration">
+        <code><a href="../Szene1Api/Api.html">Api</a> setBaseUrl(
+                                    string $url                    )
+        </code>
+        </div>
+        
+		<p class="linenumber">Defined on line <abbr title="Linenumber">270</abbr></p>
+		
+		
+		        
+		<h4>Parameters</h4>
+		
+		<table class="parameters">
+	    		    <tr>
+		        <td class="type">string</td>
+		        <td class="param">$url</td>
+		        <td class="desc"></td>
+		    </tr>
+				</table>
+	</div>
+	<p class="top"><a href="#top">&uarr; Back to top</a></p>
+	
+	</div>
+
+    <div id="functionsetSession" class="func">
+	
+	<h3>setSession</h3>
+	
+	<div class="indent">
+		
+
+        
+        <h4>Declaration</h4>
+        
+        <div class="declaration">
+        <code>void setSession(
+                                    object $session                    )
+        </code>
+        </div>
+        
+		<p class="linenumber">Defined on line <abbr title="Linenumber">297</abbr></p>
+		
+		
+		        
+		<h4>Parameters</h4>
+		
+		<table class="parameters">
+	    		    <tr>
+		        <td class="type">object</td>
+		        <td class="param">$session</td>
+		        <td class="desc"></td>
+		    </tr>
+				</table>
+	</div>
+	<p class="top"><a href="#top">&uarr; Back to top</a></p>
+	
+	</div>
+</div>
+	<div id="credit">
+		Documentation generated on Thu, 27 Jan 2011 13:46:43 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	</div>
+</div>
 </body>
 </html>
