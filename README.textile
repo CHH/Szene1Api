@@ -12,7 +12,7 @@ h2. Verwendung
 Zuerst musst du eine Instanz von Szene1\Api erzeugen. Der Konstruktor nimmt ein Array
 von Optionen. Die zwei wichtigen Optionen sind eigentlich nur @api_key@ und @api_secret@.
 
-```php
+<pre><code>
 <?php
 
 $apiKey    = "Dein API Key";
@@ -22,24 +22,24 @@ $api = new Szene1\Api(array(
     "api_key"    => $apiKey,
     "api_secret" => $apiSecret
 ));
-```
+</pre></code>
 
 Jetzt hast du eine Instanz des API Clients mit der du Aufrufe tätigen kannst. Um eine GET Anfrage
 zu starten, verwende das API einfach als Funktion:
 
-```php
+<pre><code>
 <?php
 
 $response = $api("test/echo", array("foo" => "bar"));
-```
+</pre></code>
 
 Alternativ kannst du auch die @get()@ Methode verwenden:
 
-```php
+<pre><code>
 <?php
 
 $response = $api->get("test/echo", array("foo" => "bar"));
-```
+</pre></code>
 
 Wenn der Aufruf erfolgreich war, gibt das API eine Instanz von @SimpleXMLElement@ zurück.
 Bei einem Fehler wird eine @\Szene1\Exception@ geworfen.
@@ -53,7 +53,7 @@ Für User-basierte Aufrufe benötigst du eine Session, die kannst du mit @login(
 Du kannst das Session Objekt mit @getSession()@ abrufen, um es gegebenfalls in der PHP Session
 zu speichern.
 
-```php
+<pre><code>
 <?php
 
 try {
@@ -64,7 +64,7 @@ try {
 
 // Wenn keine gültige Session besteht gibt getSession() NULL zurück
 $_SESSION["szene1"] = $api->getSession();
-```
+</pre></code>
 
 Das Session Objekt hat folgende Eigenschaften:
 * username
@@ -78,7 +78,7 @@ Methode braucht aber eine gültige Session sonst wirft sie eine Exception.
 Du kannst eine -- z.B. in der PHP Session -- gespeicherte Session verwenden, indem du 
 sie mit @setSession@ setzt.
 
-```
+<pre><code>
 <?php
 
 if (isset($_SESSION["szene1"])) {
@@ -88,4 +88,4 @@ if (isset($_SESSION["szene1"])) {
     $api->logout();
     unset($_SESSION["szene1"]);
 }
-```
+</code></pre>
