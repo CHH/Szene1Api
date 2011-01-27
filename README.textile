@@ -13,8 +13,6 @@ Zuerst musst du eine Instanz von Szene1\Api erzeugen. Der Konstruktor nimmt ein 
 von Optionen. Die zwei wichtigen Optionen sind eigentlich nur @api_key@ und @api_secret@.
 
 <pre><code>
-<?php
-
 $apiKey    = "Dein API Key";
 $apiSecret = "Dein API Secret";
 
@@ -22,30 +20,26 @@ $api = new Szene1\Api(array(
     "api_key"    => $apiKey,
     "api_secret" => $apiSecret
 ));
-</pre></code>
+</code></pre>
 
 Jetzt hast du eine Instanz des API Clients mit der du Aufrufe tätigen kannst. Um eine GET Anfrage
 zu starten, verwende das API einfach als Funktion:
 
 <pre><code>
-<?php
-
 $response = $api("test/echo", array("foo" => "bar"));
-</pre></code>
+</code></pre>
 
 Alternativ kannst du auch die @get()@ Methode verwenden:
 
 <pre><code>
-<?php
-
 $response = $api->get("test/echo", array("foo" => "bar"));
-</pre></code>
+</code></pre>
 
 Wenn der Aufruf erfolgreich war, gibt das API eine Instanz von @SimpleXMLElement@ zurück.
 Bei einem Fehler wird eine @\Szene1\Exception@ geworfen.
 
 @$api@ nimmt folgende Parameter:
-* Pfad: Entweder ein Array aus Section/Method (@array($section, $method)@) oder als String ("$section/$method")
+* Pfad: Entweder ein Array aus Section/Method (@array($section, $method)@) oder als String (@"$section/$method"@)
 * Array von Parametern
 * HTTP Methode (Standard: GET)
 
@@ -54,8 +48,6 @@ Du kannst das Session Objekt mit @getSession()@ abrufen, um es gegebenfalls in d
 zu speichern.
 
 <pre><code>
-<?php
-
 try {
     $api->login($user, $password);
 } catch (Szene1\Exception $e) {
@@ -64,7 +56,7 @@ try {
 
 // Wenn keine gültige Session besteht gibt getSession() NULL zurück
 $_SESSION["szene1"] = $api->getSession();
-</pre></code>
+</code></pre>
 
 Das Session Objekt hat folgende Eigenschaften:
 * username
@@ -79,8 +71,6 @@ Du kannst eine -- z.B. in der PHP Session -- gespeicherte Session verwenden, ind
 sie mit @setSession@ setzt.
 
 <pre><code>
-<?php
-
 if (isset($_SESSION["szene1"])) {
     $session = $_SESSION["szene1"];
     
