@@ -232,6 +232,11 @@ class Api
         
         $content = $this->request($url, $params, $httpMethod);
         
+        // Empty Response
+        if (empty($content)) {
+            throw new Exception("Failure: Empty Response.", 500);
+        }
+        
         try {
             $xml = new SimpleXMLElement($content);
             
