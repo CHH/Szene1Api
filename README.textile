@@ -1,6 +1,8 @@
 h1. Szene1Api
 
-Das ist eine ganz einfache Bibliothek um auf das SZENE1 API zuzugreifen.
+Das ist eine ganz einfache Bibliothek um auf das SZENE1 API zuzugreifen. Sie steht 
+unter der MIT Lizenz und ist daher Open Source. Der vollständige Text der MIT Lizenz
+wird in der Datei @LICENSE.txt@ mitgeliefert.
 
 h2. Anforderungen
 
