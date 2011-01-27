@@ -1,10 +1,11 @@
 <?php
 /**
- * A simple, modern and CURL-free Library for PHP 5.3+
- * to access the Szene1 {@link http://szene1.at) XML REST API
+ * A minimalist, modern and CURL-free Library for PHP 5.3+
+ * to access the Szene1 {@link http://szene1.at} XML REST API
  *
- * Documentation for the API is available at 
- * {@link http://wiki.szene1.co.at/wiki/Weblife1_API}
+ * Documentation for the API is available at {@link http://wiki.szene1.co.at/wiki/Weblife1_API}
+ * This library uses the HTTP fopen wrapper of PHP, make sure it's enabled. You can
+ * also subclass Szene1\Api and override the {@link request()} Method
  *
  * @package   Szene1Api
  * @author    Christoph Hochstrasser <christoph.hochstrasser@gmail.com>
@@ -16,9 +17,11 @@ use StdClass,
     SimpleXMLElement,
     InvalidArgumentException;
 
+/** @package Szene1Api */
 class Exception extends \Exception
 {}
 
+/** @package Szene1Api */
 class Api
 {
     /** @var string Base URL for all API Requests */
@@ -61,7 +64,8 @@ class Api
     }
     
     /**
-     * @see api()
+     * @see    api()
+     * @return SimpleXMLElement 
      */
     function __invoke($path, Array $params = array(), $method = "GET") 
     {
@@ -120,7 +124,7 @@ class Api
      * to enable user-based requests
      *
      * The session info (user ID, user name, authtoken) is available via 
-     * {@see getSession()}. Persisting this object is up to the Developer!
+     * {@link getSession()}. Persisting this object is up to the Developer!
      *
      * @throws InvalidArgumentException|Szene1\Exception
      * @param  string $username
@@ -186,7 +190,7 @@ class Api
      * @param  string|array $path Either as section/method string (e.g. "system/version")
      *                            or callback style, e.g. array("system", "version")
      * @param  array  $params
-     * @param  string $method
+     * @param  string $httpMethod
      * @return SimpleXMLElement
      */
     protected function api($path, Array $params = array(), $httpMethod = "GET")
@@ -237,7 +241,7 @@ class Api
         // API Error
         if (isset($xml->errorcode)) {
             // Error: Invalid Auth token, session is not valid anymore
-            if (static::ERROR_INVALID_AUTHTOKEN == $xml->errorcode) {
+            if (static::ERROR_INVALID_AUTHTOKEN === (int) $xml->errorcode) {
                 $this->session = null;
             }
             throw new Exception(
