@@ -1,0 +1,91 @@
+h1. Szene1Api
+
+Das ist eine ganz einfache Bibliothek um auf das SZENE1 API zuzugreifen.
+
+h2. Anforderungen
+
+* PHP 5.3+
+* HTTP fopen Wrapper (Normal von Haus aus eingeschalten)
+
+h2. Verwendung
+
+Zuerst musst du eine Instanz von Szene1\Api erzeugen. Der Konstruktor nimmt ein Array
+von Optionen. Die zwei wichtigen Optionen sind eigentlich nur @api_key@ und @api_secret@.
+
+```php
+<?php
+
+$apiKey    = "Dein API Key";
+$apiSecret = "Dein API Secret";
+
+$api = new Szene1\Api(array(
+    "api_key"    => $apiKey,
+    "api_secret" => $apiSecret
+));
+```
+
+Jetzt hast du eine Instanz des API Clients mit der du Aufrufe tätigen kannst. Um eine GET Anfrage
+zu starten, verwende das API einfach als Funktion:
+
+```php
+<?php
+
+$response = $api("test/echo", array("foo" => "bar"));
+```
+
+Alternativ kannst du auch die @get()@ Methode verwenden:
+
+```php
+<?php
+
+$response = $api->get("test/echo", array("foo" => "bar"));
+```
+
+Wenn der Aufruf erfolgreich war, gibt das API eine Instanz von @SimpleXMLElement@ zurück.
+Bei einem Fehler wird eine @\Szene1\Exception@ geworfen.
+
+@$api@ nimmt folgende Parameter:
+* Pfad: Entweder ein Array aus Section/Method (@array($section, $method)@) oder als String ("$section/$method")
+* Array von Parametern
+* HTTP Methode (Standard: GET)
+
+Für User-basierte Aufrufe benötigst du eine Session, die kannst du mit @login()@ herstellen.
+Du kannst das Session Objekt mit @getSession()@ abrufen, um es gegebenfalls in der PHP Session
+zu speichern.
+
+```php
+<?php
+
+try {
+    $api->login($user, $password);
+} catch (Szene1\Exception $e) {
+    // Irgendwas ist falsch gelaufen
+}
+
+// Wenn keine gültige Session besteht gibt getSession() NULL zurück
+$_SESSION["szene1"] = $api->getSession();
+```
+
+Das Session Objekt hat folgende Eigenschaften:
+* username
+* userid
+* authtoken
+
+Das @authtoken@ wird automatisch bei jeder Anfrage angehängt wenn du einen Benutzer eingeloggt hast.
+
+Um einen Benutzer auszuloggen kannst du die @logout()@ Methode verwenden. Die @logout()@
+Methode braucht aber eine gültige Session sonst wirft sie eine Exception.
+Du kannst eine -- z.B. in der PHP Session -- gespeicherte Session verwenden, indem du 
+sie mit @setSession@ setzt.
+
+```
+<?php
+
+if (isset($_SESSION["szene1"])) {
+    $session = $_SESSION["szene1"];
+    
+    $api->setSession($session);
+    $api->logout();
+    unset($_SESSION["szene1"]);
+}
+```
