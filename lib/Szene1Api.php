@@ -17,11 +17,15 @@ use StdClass,
     SimpleXMLElement,
     InvalidArgumentException;
 
-/** @package Szene1Api */
+/**
+ * The base exception class
+ */
 class Exception extends \Exception
 {}
 
-/** @package Szene1Api */
+/**
+ * Talks to the API
+ */
 class Api
 {
     /** @var string Base URL for all API Requests */
@@ -56,6 +60,7 @@ class Api
      *   - "base_url":   Base URL for all API requests, defaults to "http://rest.api.weblife1.com"
      *   - "session":    Set the API session, e.g. to restore it from a PHP Session
      *
+     * @author Christoph Hochstrasser
      * @param array $options Array of options
      */
     function __construct(Array $options = array())
@@ -268,18 +273,27 @@ class Api
         return $this;
     }
     
+    /**
+     * @param string $key
+     */
     function setApiKey($key)
     {
         $this->apiKey = $key;
         return $this;
     }
     
+    /**
+     * @param string $secret
+     */
     function setApiSecret($secret)
     {
         $this->apiSecret = $secret;
         return $this;
     }
     
+    /**
+     * @param object $session
+     */
     function setSession($session)
     {
         if (!is_object($session)) {
@@ -289,6 +303,9 @@ class Api
         return $this;
     }
     
+    /**
+     * @return object
+     */
     function getSession()
     {
         return $this->session;
