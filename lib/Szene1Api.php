@@ -23,6 +23,9 @@ use StdClass,
 class Exception extends \Exception
 {}
 
+class StreamFailureException extends \Exception
+{}
+
 /**
  * Talks to the API
  */
@@ -357,8 +360,15 @@ class Api
             }
         }
         
+        $handleTimeout = function($code, $severity, $message, $messageCode) {
+            if (STREAM_NOTIFY_FAILURE !== $code) return;
+            
+            throw new StreamFailureException("Stream failure: $message");
+        };
+        
         $opts     = array("http" => array_merge($this->defaultHttpOptions, $opts));
-        $context  = stream_context_create($opts);
+        $context  = stream_context_create($opts, array("notification" => $handleTimeout));
+        
         $contents = file_get_contents($url, false, $context);
         
         // Read HTTP status line
